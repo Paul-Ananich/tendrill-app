@@ -1,0 +1,1 @@
+export {getLocationsList} from './actions';
