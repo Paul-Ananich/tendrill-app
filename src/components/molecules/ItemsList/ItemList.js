@@ -25,7 +25,7 @@ const ItemsList = ({navigation}) => {
   return (
     <ItemListContainer>
       <ItemListHeader>
-        <Typography type="item-list-header">My Plants</Typography>
+        <Typography type="item-list-header">My Assets</Typography>
       </ItemListHeader>
       <FlatListContainer>
         <FlatList
