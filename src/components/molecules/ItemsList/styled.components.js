@@ -5,6 +5,8 @@ const ItemListHeader = styled(View)`
   flex: 0.05;
   margin-top: 55px;
   padding: 0 30px;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const FlatListContainer = styled(View)`

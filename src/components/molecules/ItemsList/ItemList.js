@@ -10,6 +10,7 @@ import {
 } from './styled.components';
 import Box from '../Box';
 import Typography from '../../atoms/Typography';
+import Icon from '../../atoms/Icon';
 
 import flowerImage01 from '../../../assets/images/flower-001.png';
 import BellIcon from '../../../assets/icons/bell.svg';
@@ -30,8 +31,12 @@ const ItemsList = ({ navigation }) => {
       <ItemListHeader>
         <Typography type="item-list-header">My Assets</Typography>
         <ActionsContainer>
-          <BellIcon style={{ marginLeft: 16 }} />
-          <AddIcon style={{ marginLeft: 16 }} />
+          <Icon type="actions-icon">
+            <BellIcon />
+          </Icon>
+          <Icon type="actions-icon">
+            <AddIcon />
+          </Icon>
         </ActionsContainer>
       </ItemListHeader>
       <FlatListContainer>
