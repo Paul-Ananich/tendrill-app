@@ -1,5 +1,6 @@
-import React, {useCallback} from 'react';
-import {FlatList} from 'react-native';
+import React, { useCallback } from 'react';
+import { FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import {
   ItemListHeader,
@@ -8,16 +9,15 @@ import {
 } from './styled.components';
 import Box from '../Box';
 import Typography from '../../atoms/Typography';
-import {useSelector} from 'react-redux';
 
 import flowerImage01 from '../../../assets/images/flower-001.png';
 
-const ItemsList = ({navigation}) => {
-  const {locationsList} = useSelector(state => state.locations);
+const ItemsList = ({ navigation }) => {
+  const { locationsList } = useSelector(state => state.locations);
 
   const handlePressItem = useCallback(
     item => {
-      navigation.navigate('details', {item});
+      navigation.navigate('details', { item });
     },
     [navigation],
   );
@@ -32,7 +32,7 @@ const ItemsList = ({navigation}) => {
           data={locationsList.records}
           keyExtractor={item => item.id}
           numColumns={2}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <Box
               onPress={() => handlePressItem(item)}
               source={flowerImage01}
