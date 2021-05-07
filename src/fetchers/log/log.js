@@ -10,4 +10,11 @@ const fetchLog = id =>
     },
   });
 
+const postLog = id =>
+  axios.post(`${baseApiEndpoint}/Logs`, {
+    headers: {
+      Authorization: `Bearer ${API_AUTH_TOKEN}`,
+    },
+  });
+
 export {fetchLog};
