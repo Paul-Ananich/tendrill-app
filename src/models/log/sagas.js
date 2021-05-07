@@ -16,9 +16,16 @@ function* reactToGetLog({payload: id}) {
   }
 }
 
-function* reactToCreateLog() {
+function* reactToCreateLog({payload: fieldsData}) {
   try {
-    const {data} = yield call(postLog);
+    const {data} = yield call(postLog, {
+      fields: {
+        Areas: [fieldsData.areaId],
+        temperature: fieldsData.temperature,
+        co2: fieldsData.co2,
+        humidity: fieldsData.humidity,
+      },
+    });
     yield put(setLog(data));
   } catch (err) {
     yield put(setLogError(err));
