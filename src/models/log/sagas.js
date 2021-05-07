@@ -1,20 +1,20 @@
 import {takeEvery, call, put} from 'redux-saga/effects';
 
-import {fetchLogs} from '../../fetchers/logs';
-import {GET_LOGS} from '../../components/organisms/Details/ducks/types';
-import {setLogs, setLogsError} from './actions';
+import {fetchLog} from '../../fetchers/log';
+import {GET_LOG} from '../../components/organisms/Details/ducks/types';
+import {setLog, setLogError} from './actions';
 
-function* reactToGetLogs() {
+function* reactToGetLog() {
   try {
-    const {data} = yield call(fetchLogs);
-    yield put(setLogs(data));
+    const {data} = yield call(fetchLog);
+    yield put(setLog(data));
   } catch (err) {
-    yield put(setLogsError(err));
+    yield put(setLogError(err));
   }
 }
 
-function* watchGetLogs() {
-  yield takeEvery(GET_LOGS, reactToGetLogs);
+function* watchGetLog() {
+  yield takeEvery(GET_LOG, reactToGetLog);
 }
 
-export default [watchGetLogs()];
+export default [watchGetLog()];

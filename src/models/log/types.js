@@ -1,4 +1,4 @@
-const GET_LOGS_FULFILLED = Object.freeze('logs/getLogsFulfilled');
-const GET_LOGS_REJECTED = Object.freeze('logs/getLogsRejected');
+const GET_LOG_FULFILLED = Object.freeze('log/getLogsFulfilled');
+const GET_LOG_REJECTED = Object.freeze('log/getLogsRejected');
 
-export {GET_LOGS_FULFILLED, GET_LOGS_REJECTED};
+export {GET_LOG_FULFILLED, GET_LOG_REJECTED};

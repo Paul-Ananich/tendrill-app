@@ -1,4 +1,4 @@
 const GET_FARM = Object.freeze('farm/getFarm');
-const GET_LOGS = Object.freeze('logs/getLogs');
+const GET_LOG = Object.freeze('log/getLog');
 
-export {GET_FARM, GET_LOGS};
+export {GET_FARM, GET_LOG};

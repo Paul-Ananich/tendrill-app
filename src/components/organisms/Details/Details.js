@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Animated, View, TouchableOpacity} from 'react-native';
 import {State} from 'react-native-gesture-handler';
 
-import {getFarm, getLogs} from './ducks';
+import {getFarm, getLog} from './ducks';
 import {StyledView, StyledSafeAreaView} from './styled.components';
 import NavigationDrawer from '../../molecules/NavigationDrawer';
 import SliderCustom from '../../molecules/ValueSlider';
@@ -15,16 +15,16 @@ const Details = ({route, navigation}) => {
   const {item} = route.params;
   const dispatch = useDispatch();
   const {farm} = useSelector(state => state.farm);
-  const {logs} = useSelector(state => state.logs);
+  const {log} = useSelector(state => state.log);
 
   useEffect(() => {
     dispatch(getFarm(item.fields.Farms[0]));
-    dispatch(getLogs(item));
+    dispatch(getLog(item));
   }, [dispatch, item]);
 
   let offset = 0;
 
-  console.log(logs);
+  console.log(log);
 
   const heightAnimate = new Animated.Value(0);
   const animatedEvent = Animated.event(

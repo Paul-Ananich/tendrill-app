@@ -1,22 +1,22 @@
 import {createReducer} from '@reduxjs/toolkit';
 
-import {GET_LOGS_FULFILLED, GET_LOGS_REJECTED} from './types';
+import {GET_LOG_FULFILLED, GET_LOG_REJECTED} from './types';
 
 const initialState = {
-    logs: [],
-    errors: [],
+  log: [],
+  errors: [],
 };
 
-const logsReducer = createReducer(initialState, {
-    [GET_LOGS_FULFILLED]: (state, {payload}) => ({
-        ...state,
-        logs: payload,
-        errors: [],
-    }),
-    [GET_LOGS_REJECTED]: (state, {payload}) => ({
-        ...state,
-        errors: [...state.errors, payload],
-    }),
+const logReducer = createReducer(initialState, {
+  [GET_LOG_FULFILLED]: (state, {payload}) => ({
+    ...state,
+    log: payload,
+    errors: [],
+  }),
+  [GET_LOG_REJECTED]: (state, {payload}) => ({
+    ...state,
+    errors: [...state.errors, payload],
+  }),
 });
 
-export default logsReducer;
+export default logReducer;
