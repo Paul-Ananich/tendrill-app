@@ -3,8 +3,8 @@ import {API_ENDPOINT, API_TOKEN, API_VERSION, API_AUTH_TOKEN} from '@env';
 
 const baseApiEndpoint = `${API_ENDPOINT}/v${API_VERSION}/${API_TOKEN}`;
 
-const fetchLog = () =>
-  axios.get(`${baseApiEndpoint}/Logs/rec4HohbaTXDUxcqa`, {
+const fetchLog = id =>
+  axios.get(`${baseApiEndpoint}/Logs/${id}`, {
     headers: {
       Authorization: `Bearer ${API_AUTH_TOKEN}`,
     },

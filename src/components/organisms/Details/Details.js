@@ -19,12 +19,10 @@ const Details = ({route, navigation}) => {
 
   useEffect(() => {
     dispatch(getFarm(item.fields.Farms[0]));
-    dispatch(getLog(item));
+    dispatch(getLog(item.fields.Logs[item.fields.Logs.length - 1]));
   }, [dispatch, item]);
 
   let offset = 0;
-
-  console.log(log);
 
   const heightAnimate = new Animated.Value(0);
   const animatedEvent = Animated.event(
