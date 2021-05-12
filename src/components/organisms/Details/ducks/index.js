@@ -1,1 +1,1 @@
-export {getFarm} from './actions';
+export {getFarm, getLog, createLog} from './actions';
