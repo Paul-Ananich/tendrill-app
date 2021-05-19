@@ -1,4 +1,11 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import styled from 'styled-components';
+
+const StyledTagsContainer = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const styles = StyleSheet.create({
   navigationDrawer: {
@@ -16,4 +23,5 @@ const styles = StyleSheet.create({
   },
 });
 
+export {StyledTagsContainer};
 export default styles;

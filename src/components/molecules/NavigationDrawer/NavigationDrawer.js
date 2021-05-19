@@ -3,9 +3,11 @@ import {Animated} from 'react-native';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 
 import styles from './styled.components';
+import {StyledTagsContainer} from './styled.components';
 import Button from '../../atoms/Button/Button';
 import Typography from '../../atoms/Typography';
 import Divider from '../../atoms/Divider';
+import Input from '../../atoms/Input';
 
 const NavigationDrawer = ({
   animatedEvent,
@@ -35,9 +37,13 @@ const NavigationDrawer = ({
         ]}>
         <Button type="sliders-badge" isClickable={false} />
         <Typography type="details-title">{name}</Typography>
-        <Typography type="details-subtitle">
-          Tulip • 37 days • Healthy
-        </Typography>
+        <StyledTagsContainer>
+          <Input name="Tulip" />
+          <Typography type="details-subtitle">•</Typography>
+          <Input name="37 days" />
+          <Typography type="details-subtitle">•</Typography>
+          <Input name="Healthy" />
+        </StyledTagsContainer>
         <Divider />
         <Animated.View
           style={{

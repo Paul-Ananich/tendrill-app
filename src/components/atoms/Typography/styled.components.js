@@ -50,7 +50,7 @@ const StyledText = styled(Text)`
           line-height: 19px;
           letter-spacing: 1.04px;
           margin-top: 11px;
-          margin-bottom: 35px;
+          margin-bottom: 10px;
         `;
       default:
         return;
