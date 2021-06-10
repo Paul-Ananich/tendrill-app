@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Animated, View, TouchableOpacity} from 'react-native';
 import {State} from 'react-native-gesture-handler';
 
-import {getFarm, getLog, createLog} from './ducks';
+import {getFarm, getLog, changeInputState} from './ducks';
 import {StyledView, StyledSafeAreaView} from './styled.components';
 import NavigationDrawer from '../../molecules/NavigationDrawer';
 import SliderCustom from '../../molecules/ValueSlider';
@@ -52,11 +52,11 @@ const Details = ({route, navigation}) => {
         }
 
         Animated.timing(heightAnimate, {
-          toValue: isOpen ? 0 : 260,
+          toValue: isOpen ? 0 : 2000,
           timing: 1000,
           useNativeDriver: true,
         }).start(() => {
-          offset = isOpen ? 0 : 260;
+          offset = isOpen ? 0 : 2000;
           heightAnimate.setOffset(offset);
           heightAnimate.setValue(0);
         });
@@ -68,6 +68,10 @@ const Details = ({route, navigation}) => {
   const handlePressBackButton = useCallback(() => {
     navigation.pop();
   }, [navigation]);
+
+  function handleSubmitInput(value) {
+    log && dispatch(changeInputState({inputName: this.inputName, value}));
+  }
 
   return (
     <View>
@@ -92,7 +96,9 @@ const Details = ({route, navigation}) => {
         animatedEvent={animatedEvent}
         handleMenu={handleMenu}
         heightAnimate={heightAnimate}
-        name={farm?.fields.farm_name}>
+        name={farm?.fields.farm_name}
+        handleSubmitInput={handleSubmitInput}
+        >
         <SliderCustom
           minimumValue={1}
           maximumValue={6}

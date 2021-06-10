@@ -1,9 +1,10 @@
 import {takeEvery, call, put} from 'redux-saga/effects';
 
-import {fetchLog, postLog} from '../../fetchers/log';
+import {fetchLog, postLog, patchLog} from '../../fetchers/log';
 import {
   GET_LOG,
   CREATE_LOG,
+  UPDATE_LOG
 } from '../../components/organisms/Details/ducks/types';
 import {setLog, setLogError} from './actions';
 
@@ -32,6 +33,15 @@ function* reactToCreateLog({payload: fieldsData}) {
   }
 }
 
+function* reactToUpdateLog({payload}) {
+  try {
+    const {data} = yield call(patchLog, payload);
+    yield put(setLog(data));
+  } catch (err) {
+    yield put(setLogError(err));
+  }
+}
+
 function* watchGetLog() {
   yield takeEvery(GET_LOG, reactToGetLog);
 }
@@ -40,4 +50,8 @@ function* watchCreateLog() {
   yield takeEvery(CREATE_LOG, reactToCreateLog);
 }
 
-export default [watchGetLog(), watchCreateLog()];
+function* watchUpdateLog() {
+  yield takeEvery(UPDATE_LOG, reactToUpdateLog);
+}
+
+export default [watchGetLog(), watchCreateLog(), watchUpdateLog()];

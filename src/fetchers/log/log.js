@@ -16,5 +16,12 @@ const postLog = data =>
       Authorization: `Bearer ${API_AUTH_TOKEN}`,
     },
   });
+  
+const patchLog = data =>
+  axios.patch(`${baseApiEndpoint}/Logs`, data, {
+    headers: {
+      Authorization: `Bearer ${API_AUTH_TOKEN}`,
+    },
+  });
 
-export {fetchLog, postLog};
+export {fetchLog, postLog, patchLog};

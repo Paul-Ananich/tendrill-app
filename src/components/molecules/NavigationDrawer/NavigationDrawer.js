@@ -14,6 +14,7 @@ const NavigationDrawer = ({
   handleMenu,
   heightAnimate,
   name,
+  handleSubmitInput,
   children,
 }) => {
   return (
@@ -38,11 +39,11 @@ const NavigationDrawer = ({
         <Button type="sliders-badge" isClickable={false} />
         <Typography type="details-title">{name}</Typography>
         <StyledTagsContainer>
-          <Input name="Tulip" />
+          <Input name="Tulip" handleSubmitInput={handleSubmitInput.bind({inputName: 'lifecycle'})} />
           <Typography type="details-subtitle">•</Typography>
-          <Input name="37 days" />
+          <Input name="37 days" handleSubmitInput={handleSubmitInput.bind({inputName: 'age'})} />
           <Typography type="details-subtitle">•</Typography>
-          <Input name="Healthy" />
+          <Input name="Healthy" handleSubmitInput={handleSubmitInput.bind({inputName: 'health_status'})} />
         </StyledTagsContainer>
         <Divider />
         <Animated.View
